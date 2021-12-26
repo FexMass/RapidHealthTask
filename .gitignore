@@ -1,0 +1,4 @@
+# file: ~/.gitignore
+.idea/
+out/
+target/

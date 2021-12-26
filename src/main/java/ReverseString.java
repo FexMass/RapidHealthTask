@@ -1,4 +1,7 @@
+import java.util.InputMismatchException;
+
 /**
+ * @author Massimo
  * String reverse
  */
 public class ReverseString {
@@ -10,7 +13,7 @@ public class ReverseString {
      */
     public String reverseStringWithRegularLoop(String input) {
         if (checkIfStringIsOk(input)) {
-            return input;
+            throw new InputMismatchException("Input can't be null or empty");
         }
 
         //immutable object, while regular String is immutable

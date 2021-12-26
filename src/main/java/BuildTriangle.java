@@ -1,4 +1,5 @@
 /**
+ * @author Massimo
  * Print asterisk (*) triangle
  */
 public class BuildTriangle {

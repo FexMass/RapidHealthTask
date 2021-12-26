@@ -13,12 +13,14 @@ public class TestCases {
     private ReverseString reverseString;
     private BuildTriangle buildTriangle;
     private FindTriangleSize findTriangleSize;
+    private PatternRecognition patternRecognition;
 
     @Before
     public void init() {
         reverseString = new ReverseString();
         buildTriangle = new BuildTriangle();
         findTriangleSize = new FindTriangleSize();
+        patternRecognition = new PatternRecognition();
     }
 
     @Test
@@ -30,7 +32,6 @@ public class TestCases {
         assertEquals("aabb", reverseString.reverseStringWithRegularLoop(input));
         assertEquals("ba ba", reverseString.reverseStringWithRegularLoop(input1));
         assertEquals("omissam", reverseString.reverseStringWithRegularLoop(input2));
-        assertNull(reverseString.reverseStringWithRegularLoop(null));
     }
 
     @Test
@@ -38,13 +39,10 @@ public class TestCases {
         String input = "bbaa";
         String input1 = "ab ab";
         String input2 = "massimo";
-        String input3 = "";
 
         assertEquals("aabb", reverseString.reverseStringWithRecursion(input));
         assertEquals("ba ba", reverseString.reverseStringWithRecursion(input1));
         assertEquals("omissam", reverseString.reverseStringWithRecursion(input2));
-        assertEquals("", reverseString.reverseStringWithRecursion(input3));
-        assertNull(reverseString.reverseStringWithRecursion(null));
     }
 
     @Test
@@ -101,5 +99,23 @@ public class TestCases {
         reverseString.reverseStringWithRecursion("");
         findTriangleSize.findTriangleSize("");
         findTriangleSize.findTriangleSize(null);
+    }
+
+    @Test
+    public void verifyPattern() {
+        String value1 = "tata";
+        String value2 = "taat";
+        String value3 = "tt";
+        String value4 = "ttt";
+        String value6 = "tat";
+
+        String pattern = "*";
+
+        assertTrue(patternRecognition.verifyStringPattern(value1, value1));
+        assertFalse(patternRecognition.verifyStringPattern(value2, value1));
+        assertTrue(patternRecognition.verifyStringPattern(value3, "t" + pattern + "t"));
+        assertTrue(patternRecognition.verifyStringPattern(value4, "t" + pattern + "t"));
+        assertFalse(patternRecognition.verifyStringPattern(value1, pattern + "t"));
+        assertTrue(patternRecognition.verifyStringPattern(value6, pattern + "t"));
     }
 }

@@ -6,10 +6,12 @@ import static org.junit.Assert.*;
 public class TestCases {
 
     private ReverseString reverseString;
+    private BuildTriangle buildTriangle;
 
     @Before
     public void init() {
         reverseString = new ReverseString();
+        buildTriangle = new BuildTriangle();
     }
 
     @Test
@@ -38,6 +40,14 @@ public class TestCases {
         assertEquals("omissam", reverseString.reverseStringWithRecursion(input2));
         assertEquals("", reverseString.reverseStringWithRecursion(input3));
         assertNull(reverseString.reverseStringWithRecursion(null));
+    }
 
+    @Test
+    public void printTriangle() {
+        System.out.println(buildTriangle.printTriangle(7));
+
+        System.out.println(buildTriangle.printTriangle(-7));
+
+        System.out.println(buildTriangle.printTriangle(0));
     }
 }
